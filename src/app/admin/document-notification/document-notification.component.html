@@ -1,0 +1,68 @@
+<div class="app-notification">
+  <div class="search-container">
+    <input type="search" class="search-input w-100" [(ngModel)]="searchText" name="s"
+      placeholder="Search Notifications..." (input)="searchNotifications()" />
+    <button class="search-submit" type="submit" (click)="searchNotifications()">
+      <i class="pi pi-search"></i>
+    </button>
+  </div>
+  <div class="card-section mb-0">
+    <div class="tab-content">
+      <div class="tab-pane fade show" *ngFor="let tabName of tabKeys; let i = index" [class.active]="i === 0"
+        [attr.id]="'sb' + (i + 1)">
+        <div class="d-flex flex-column gap-3">
+          <p-accordion *ngFor="let section of processedTabData[tabName]; let j = index" [multiple]="true">
+            <p-accordion-panel value="j">
+              <div class="header-with-button">
+                <p-accordion-header>
+                  {{ section.notificationType }}
+                  <span class="notify-count">
+                    {{
+                      section.notifications.length > 0
+                        ? "" + section.notifications.length + ""
+                        : ""
+                    }}
+                  </span>
+                </p-accordion-header>
+              </div>
+              <p-accordion-content>
+                <div class="d-flex flex-column gap-3">
+                  <div *ngFor="let item of section.notifications" class="notify-box p-3">
+                    <div class="d-flex align-items-start justify-content-between">
+                      <div class="d-flex flex-column">
+                        <h3>
+                          <span [style.background-color]="item.colorCode || '#eeeeee'"></span>
+                          Ref No: {{ item.transactionCode }}
+                        </h3>
+                        <div class="head-line d-flex align-items-center gap-3">
+                          <span>{{ item.eventDate }}</span>
+                          <span>{{ item.eventTime }}</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary" [style.color]="item.colorCode || '#eeeeee'" (click)="showDocTransaction(item)">
+                        <i class="pi pi-history"></i>
+                        History
+                      </button>
+                    </div>
+                    <div class="notify-content-box" (click)="navigationHandler(item)">
+                      <p><b>Creator</b>: {{ item.creator }}</p>
+                      <p><b>Last User</b>: {{ item.lastUser }}</p>
+                      <p><b>{{fieldTitle['event']}}</b>: {{item.event}}</p>
+                      <p>
+                        <b>Status</b> :
+                        <span [style.color]="item.colorCode || '#eeeeee'">
+                          {{ item.statusName }}
+                        </span>
+                      </p>
+                      <p><b>Comments</b>: {{ item.comment }}</p>
+                    </div>
+                  </div>
+                </div>
+              </p-accordion-content>
+            </p-accordion-panel>
+          </p-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

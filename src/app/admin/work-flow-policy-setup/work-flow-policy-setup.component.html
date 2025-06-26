@@ -1,0 +1,175 @@
+<div class="card-head mb-2">
+  <h1 class="section-title">WF Policy Setup</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card-box p-3">
+      <form
+        #workFlowPolicySetupForm="ngForm"
+        class="divided"
+        [addValidators]="validationMsgObj"
+        validationMessage="workFlowPolicySetupValidationModel"
+      >
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["policy"] }}</label>
+          <p-select
+            appendTo="body"
+            inputvalidator
+            [filter]="true"
+            [options]="modelSvc.workFlowPolicyList"
+            name="policyCode"
+            [(ngModel)]="modelSvc.policySetupModel.policyCode"
+            placeholder="Select Policy"
+            optionLabel="policyTitle"
+            optionValue="policyCode"
+            [style]="{ width: '100%' }"
+            (onChange)="onPolicyChange($event, false)"
+          >
+          </p-select>
+        </div>
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["fromstatus"] }}</label>
+          <p-select
+            appendTo="body"
+            inputvalidator
+            [filter]="true"
+            [options]="fromStatusList"
+            name="fromStatusID"
+            [(ngModel)]="modelSvc.policySetupModel.fromStatusID"
+            placeholder="Select From Status"
+            optionLabel="statusName"
+            optionValue="id"
+            [style]="{ width: '100%' }"
+          >
+          </p-select>
+        </div>
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["event"] }}</label>
+          <p-select
+            appendTo="body"
+            inputvalidator
+            [filter]="true"
+            [options]="eventList"
+            name="eventID"
+            [(ngModel)]="modelSvc.policySetupModel.eventID"
+            placeholder="Select Event"
+            optionLabel="event"
+            optionValue="id"
+            [style]="{ width: '100%' }"
+          >
+          </p-select>
+        </div>
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["tostatus"] }}</label>
+          <p-select
+            appendTo="body"
+            inputvalidator
+            [filter]="true"
+            [options]="toStatusList"
+            name="toStatusID"
+            [(ngModel)]="modelSvc.policySetupModel.toStatusID"
+            placeholder="Select To Status"
+            optionLabel="statusName"
+            optionValue="id"
+            [style]="{ width: '100%' }"
+          >
+          </p-select>
+        </div>
+        <div class="form-check mt-2 mb-3">
+          <input
+            type="checkbox"
+            formcontrolname="isActive"
+            id="isActive"
+            name="isActive"
+            class="form-check-input"
+            [(ngModel)]="modelSvc.policySetupModel.isActive"
+          />
+          <label for="isActive" title="isActive" class="form-check-label">{{
+            fieldTitle["isactive"]
+          }}</label>
+        </div>
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex align-items-center justify-content-end">
+            <button
+              type="button"
+              *ngIf="modelSvc.policySetupModel.id > 0"
+              (click)="setNew()"
+              class="btn btn-sm btn-danger"
+            >
+              <img src="../../../assets/images/icons/x-circle.svg" alt="icon" />
+              {{ fieldTitle["cancel"] }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-warning mr-d-10"
+              [disabled]="!workFlowPolicySetupForm.dirty"
+              (click)="reset()"
+            >
+              <img src="../../../assets/images/icons/repeat.svg" alt="save" />
+              {{ fieldTitle["reset"] }}
+            </button>
+            <button
+              type="button"
+              niDbclickPrevent
+              class="btn btn-sm btn-success"
+              [disabled]="
+                !workFlowPolicySetupForm.valid || !workFlowPolicySetupForm.dirty
+              "
+              (click)="save(workFlowPolicySetupForm)"
+            >
+              <img
+                src="../../../assets/images/icons/check-circle.svg"
+                alt="icon"
+              />
+              {{ fieldTitle["save"] }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="card-box p-3">
+      <app-ni-table
+        [gridOption]="gridOption"
+        [valueList]="modelSvc.workFlowList"
+        class="smaller-elements"
+      >
+        <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+          <tr>
+            <td>{{ item.policyTitle }}</td>
+            <td>{{ !item.fromStatusName ? "None" : item.fromStatusName }}</td>
+            <td>{{ item.event }}</td>
+            <td>{{ item.toStatusName }}</td>
+            <td>{{ item.isActive ? "Yes" : "No" }}</td>
+            <td class="text-center" style="width: 10%">
+              <div class="d-flex align-items-center justify-content-center">
+                <button
+                  [disabled]="item.isDefault"
+                  type="button"
+                  pButton
+                  pRipple
+                  icon="pi pi-pencil"
+                  class="p-button-success p-mr-2"
+                  type="button"
+                  (click)="editStatus(item, workFlowPolicySetupForm)"
+                ></button>
+                <button
+                  [disabled]="item.isDefault"
+                  type="button"
+                  niDbclickPrevent
+                  class="p-button-danger"
+                  pButton
+                  pRipple
+                  icon="pi pi-trash"
+                  (click)="deleteStatus(item.id, workFlowPolicySetupForm)"
+                ></button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </app-ni-table>
+    </div>
+  </div>
+</div>

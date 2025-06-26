@@ -1,0 +1,341 @@
+<!-- <div class="drawer-head">
+  <div class="nav nav-tabs horizontal-tabs">
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sb1">Self Service</button>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sb2">Reminder</button>
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sb3">Recommended</button>
+  </div>
+  <div class="search-container">
+    <input type="search" class="search-input w-100" value="" name="s" placeholder="Search Notifications..." />
+    <button type="submit" class="search-submit" name="submit">
+      <i class="pi pi-search"></i>
+    </button>
+  </div>
+</div>
+<div class="card-section">
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="sb1">
+      <p-accordion [(value)]="openPanels" [multiple]="true" class="d-flex flex-column gap-3">
+        <p-accordion-panel value="0">
+          <div class="header-with-button">
+            <p-accordion-header>Leave Applications</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+              <div class="notify-box p-3">
+                <h3><span class="verified"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="verified"> Verified</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+              <div class="notify-box p-3">
+                <h3><span class="approved"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="approved"> Approved</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="1">
+          <div class="header-with-button">
+            <p-accordion-header>Purchase Requisitions</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Purchase Requisition</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="2">
+          <div class="header-with-button">
+            <p-accordion-header>Earn Leave Encashment</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+             <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Earn Leave Encashment</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="3">
+          <div class="header-with-button">
+            <p-accordion-header>Withdraw Applications</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Withdraw Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="4">
+          <div class="header-with-button">
+            <p-accordion-header>Re-Open Applications</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Re-Open Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+      </p-accordion>
+    </div>
+    <div class="tab-pane fade" id="sb2">
+      <p-accordion [(value)]="openPanels" [multiple]="true" class="d-flex flex-column gap-3">
+        <p-accordion-panel value="0">
+          <div class="header-with-button">
+            <p-accordion-header>Leave Applications</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+              <div class="notify-box p-3">
+                <h3><span class="verified"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="verified"> Verified</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+              <div class="notify-box p-3">
+                <h3><span class="approved"></span>Leave Application</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="approved"> Approved</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="1">
+          <div class="header-with-button">
+            <p-accordion-header>Purchase Requisitions</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+             <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Purchase Requisition</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+      </p-accordion>
+    </div>
+    <div class="tab-pane fade" id="sb3">
+      <p-accordion [(value)]="openPanels" [multiple]="true" class="d-flex flex-column gap-3">
+        <p-accordion-panel value="0">
+          <div class="header-with-button">
+            <p-accordion-header>Purchase Requisitions</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Purchase Requisition</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+
+        <p-accordion-panel value="1">
+          <div class="header-with-button">
+            <p-accordion-header>Purchase Orders</p-accordion-header>
+          </div>
+          <p-accordion-content>
+            <div class="d-flex flex-column gap-3">
+              <div class="notify-box p-3">
+                <h3><span class="recommended"></span>Purchase Order</h3>
+                <div class="head-line d-flex align-items-center gap-3">
+                  <span>LA#003</span>
+                  <span>Yesterday (05-05-2025)</span>
+                  <span>08:30 PM</span>
+                </div>
+                <p><b>Creator</b>: Shamim Ahmed</p>
+                <p><b>Last User</b>: Zaman</p>
+                <p><b>Status</b> :<span class="recommended"> Recommended</span></p>
+                <p><b>Comments</b>: Urgent Leave for family issue</p>
+              </div>
+            </div>
+          </p-accordion-content>
+        </p-accordion-panel>
+      </p-accordion>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="drawer-head">
+  <div class="nav nav-tabs horizontal-tabs">
+    <button
+      *ngFor="let tab of tabKeys; let i = index"
+      class="nav-link"
+      [class.active]="i === 0"
+      data-bs-toggle="tab"
+      [attr.data-bs-target]="'#sb' + (i + 1)"
+    >
+      {{ tab }}
+    </button>
+  </div> -->
+
+<!-- <div class="search-container">
+    <input
+      type="search"
+      class="search-input w-100"
+      [(ngModel)]="searchText"
+      name="s"
+      placeholder="Search Notifications..."
+      (input)="searchNotifications()"
+    />
+    <button class="search-submit" type="submit" (click)="searchNotifications()">
+      <i class="pi pi-search"></i>
+    </button>
+  </div> -->
+<!-- </div> -->
+
+
+<div class="drawer-head pb-3">
+  <div class="nav nav-tabs horizontal-tabs">
+    <button
+      class="nav-link"
+      [class.active]="selectedTab === 'sb1'"
+      (click)="onTabSelect('sb1')"
+    >
+      Self Service
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="selectedTab === 'sb2'"
+      (click)="onTabSelect('sb2')"
+    >
+      Reminder
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="selectedTab === 'sb3'"
+      (click)="onTabSelect('sb3')"
+    >
+      Recommended
+    </button>
+  </div>
+</div>
+
+<div *ngIf="selectedTab === 'sb1'">
+  <app-document-notification
+    id="sb1"
+    (itemClicked)="onCloseDrawer()"
+    (countChangedChild)="onNotificationCountChange($event)"
+  ></app-document-notification>
+</div>
+
+<div *ngIf="selectedTab === 'sb2'"></div>
+
+<div *ngIf="selectedTab === 'sb3'"></div>
+
+

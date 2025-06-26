@@ -1,0 +1,432 @@
+<div class="card-head mb-2">
+  <h1 class="section-title">Workflow Setup</h1>
+</div>
+<form #workFlowForm="ngForm" [addValidators]="validationMsgObj" validationMessage="WorkFlowValidation">
+  <div class="card-section">
+    <div class="top-card-box p-3 pb-1 mb-3">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>{{ fieldTitle['workflowno'] }}</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" name="wFRefNo" class="form-control" [(ngModel)]="modelSvc.workFlow.wFRefNo" readonly
+                  placeholder="{{ fieldTitle['workflowno'] }}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="ni-sup">{{ fieldTitle['document'] }}</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" [disabled]="modelSvc.workFlow.id > 0" [showClear]="true"
+                  [options]="modelSvc.documentList" name="documentID" [filter]="true"
+                  [(ngModel)]="modelSvc.workFlow.documentID" optionLabel="pageTitle" optionValue="id"
+                  [niSelectedText]="modelSvc.workFlow" textProperty="documentName" placeholder="Select Document"
+                  inputValidator [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">{{ fieldTitle['wfschema'] }}</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" [disabled]="modelSvc.workFlow.id > 0" [showClear]="true"
+                  [options]="modelSvc.schemalList" name="wFSchemaID" [(ngModel)]="modelSvc.workFlow.wFSchemaID"
+                  optionLabel="schemaName" optionValue="id" [niSelectedText]="modelSvc.workFlow"
+                  textProperty="wfSchemaName" placeholder="Select Schema" (onChange)="onClickSchema()" [filter]="true"
+                  [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">{{ fieldTitle['organization'] }}</label>
+              </div>
+              <div class="col-md-8">
+                <p-treeSelect appendTo="body" placeholder="Select Organization" [(ngModel)]="modelSvc.selectedNode"
+                  [disabled]="modelSvc.workFlow.id > 0" [options]="modelSvc.orgList" [showClear]="true" name="orgID"
+                  optionLabel="label" optionValue="id" selectionMode="single" filterMode="strict" [filter]="true"
+                  (onNodeSelect)="onNodeClick(modelSvc.selectedNode)" [style]="{ width: '100%' }">
+                </p-treeSelect>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">{{ fieldTitle['project'] }}</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" [disabled]="modelSvc.workFlow.id > 0" [showClear]="true"
+                  [options]="modelSvc.projectList | arrayFilter: {orgID : modelSvc.workFlow.orgID}" name="projectID"
+                  [(ngModel)]="modelSvc.workFlow.projectID" optionLabel="name" optionValue="id"
+                  [niSelectedText]="modelSvc.workFlow" textProperty="projectName" placeholder="Select Project"
+                  [filter]="true" [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-8">
+                <div class="form-check my-1" *ngIf="modelSvc.workFlow.wFSchemaID || modelSvc.workFlow.id > 0">
+                  <input id="isEditWorkFlow" name="isEditWorkFlow" type="checkbox" (click)="onClickIsEditWorkFlow()"
+                    [(ngModel)]="modelSvc.workFlow.isEditWorkFlow" class="form-check-input" />
+                  <label for="isEditWorkFlow" class="form-check-label">{{ fieldTitle['editwfschema'] }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="top-card-box p-3 workflow-setup">
+          <p-accordion [(value)]="openPanels" [multiple]="true" class="d-flex flex-column gap-3">
+            <p-accordion-panel value="forward">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['forwardpolicy'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" class="btn btn-success" [disabled]="isDisable"
+                    (click)="showPolicyModal(workFlowPolicy.ForwardPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th>{{ fieldTitle['user(actor)'] }}</th>
+                    <th class="ni-sup">{{ fieldTitle['sequence'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of sortedList">
+                    <tr ngModelGroup="forwardPolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.ForwardPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <p-multiSelect appendTo="body" [(ngModel)]="item.userIDs" [options]="modelSvc.userList"
+                          optionLabel="name" [filter]="true" filterBy="name" inputValidator optionValue="id"
+                          name="userIDs" [style]="{ width: '100%' }" placeholder="Select Any">
+                        </p-multiSelect>
+                      </td>
+                      <td>
+                        <input type="text" readonly name="sequence" class="form-control" niNumber [(ngModel)]="item.sequence">
+                      </td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" 
+                          pButton pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="backward">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['backwardpolicy'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" [disabled]="isDisable" class="btn btn-success"
+                    (click)="showPolicyModal(workFlowPolicy.BackwardPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of modelSvc.workFlow.wFDocumentWFDetailDTOList">
+                    <tr ngModelGroup="backwardPolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.BackwardPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" pButton
+                          pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="cancel">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['cancellationpolicy'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" [disabled]="isDisable" class="btn btn-success"
+                    (click)="showPolicyModal(workFlowPolicy.CancellationPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of modelSvc.workFlow.wFDocumentWFDetailDTOList">
+                    <tr ngModelGroup="cancellationPolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.CancellationPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" pButton
+                          pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="withdraw">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['withdrawmode'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" [disabled]="isDisable" class="btn btn-success"
+                    (click)="showPolicyModal(workFlowPolicy.WithdrawPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of modelSvc.workFlow.wFDocumentWFDetailDTOList">
+                    <tr ngModelGroup="cancellationPolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.WithdrawPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" pButton
+                          pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="reopen">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['re-openpolicy'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" [disabled]="isDisable" class="btn btn-success"
+                    (click)="showPolicyModal(workFlowPolicy.ReOpenPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th>{{ fieldTitle['user(actor)'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of modelSvc.workFlow.wFDocumentWFDetailDTOList">
+                    <tr ngModelGroup="reopenpolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.ReOpenPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <p-multiSelect appendTo="body" [(ngModel)]="item.userIDs" [options]="modelSvc.userList"
+                          optionLabel="name" [filter]="true" filterBy="name" inputValidator optionValue="id" name="userIDs"
+                          placeholder="{{fieldTitle['selectany']}}">
+                        </p-multiSelect>
+                      </td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" pButton
+                          pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+            <p-accordion-panel value="creation">
+              <div class="header-with-button px-3">
+                <p-accordion-header>{{ fieldTitle['creationpolicy'] }}</p-accordion-header>
+                <div class="d-flex align-items-center">
+                  <button type="button" [disabled]="isDisable" class="btn btn-success"
+                    (click)="showPolicyModal(workFlowPolicy.CreationPolicy)">
+                    <img src="../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                    {{ fieldTitle['addpolicy'] }}
+                  </button>
+                </div>
+              </div>
+              <p-accordion-content>
+                <table class="normal-table">
+                  <tr>
+                    <th>{{ fieldTitle['status'] }}</th>
+                    <th>{{ fieldTitle['user(actor)'] }}</th>
+                    <th class="text-center">{{ fieldTitle['action'] }}</th>
+                  </tr>
+                  <tbody *ngFor="let item of modelSvc.workFlow.wFDocumentWFDetailDTOList">
+                    <tr ngModelGroup="creationpolicy_{{item.id}}"
+                      *ngIf="item.tag != objectState.deleted && item.policyCode == workFlowPolicy.CreationPolicy"
+                      [addValidators]="validationMsgObj" validationMessage="WorkFlowDetailValidation">
+                      <td>{{item.statusName}}</td>
+                      <td>
+                        <p-multiSelect appendTo="body" [(ngModel)]="item.userIDs" [options]="modelSvc.userList"
+                          optionLabel="name" [filter]="true" filterBy="name" inputValidator optionValue="id" name="userIDs"
+                          placeholder="{{fieldTitle['selectany']}}">
+                        </p-multiSelect>
+                      </td>
+                      <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <button type="button" [disabled]="isDisable" niDbclickPrevent class="p-button-danger" pButton
+                          pRipple icon="pi pi-trash" (click)="deletePolicy(item)"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </p-accordion-content>
+            </p-accordion-panel>
+          </p-accordion>
+          <div class="row align-items-center mt-3">
+            <div class="col-md-6">
+              <div class="form-check my-2"
+                *ngIf="(modelSvc.workFlow.wFSchemaID && modelSvc.workFlow.isEditWorkFlow) || (modelSvc.workFlow.id == 0 && !modelSvc.workFlow.wFSchemaID) || (modelSvc.workFlow.id > 0 && modelSvc.workFlow.isEditWorkFlow)">
+                <input id="isWFSchemaUseGlobally" name="isWFSchemaUseGlobally" type="checkbox"
+                  [(ngModel)]="modelSvc.workFlow.isWFSchemaUseGlobally" (change)="onChangeIsGlobal()"
+                  class="form-check-input">
+                <label for="isWFSchemaUseGlobally"
+                  class="form-check-label">{{ fieldTitle['workflowschemauseasglobally'] }}</label>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="isActive" name="isActive" class="form-check-input"
+                  [(ngModel)]="modelSvc.workFlow.isActive" />
+                <label for="isActive" title="isActive" class="form-check-label">{{ fieldTitle['isactive'] }}</label>
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="modelSvc.workFlow.isWFSchemaUseGlobally">
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">{{ fieldTitle['wfschema'] }}</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" type="text" name="wfNewSchemaName"
+                      [(ngModel)]="modelSvc.workFlow.wfNewSchemaName" inputValidator
+                      placeholder="Type workflow Schema" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button class="btn btn-primary" type="button" (click)="showWorkFlowSchema()">
+                    <img src="../../../assets/images/icons/external-link.svg" alt="icon" />
+                    {{ fieldTitle['workflowschema'] }}
+                  </button>
+                  <button type="button" class="btn btn-sm btn-success" (click)="setNew()" *ngIf="modelSvc.workFlow.id > 0">
+                  <img src="../../../../assets/images/icons/plus-circle.svg" alt="icon" />
+                  {{fieldTitle['addnew']}}
+                </button>
+                  <button type="button" class="btn btn-sm btn-danger" [disabled]="!workFlowForm.dirty"
+                    (click)="resetWorkFlow()">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon">{{ fieldTitle['reset'] }}
+                  </button>
+                  <button type="button" class="btn btn-sm btn-success" [disabled]="!workFlowForm.dirty"
+                    (click)="saveWorkFlow(workFlowForm)">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon">{{ fieldTitle['save'] }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<p-dialog [header]="modelSvc.policyModalTitle" [(visible)]="isShowPolicyModal" [modal]="true" [baseZIndex]="100"
+  [draggable]="false" [closable]="true">
+  <ni-table [value]="modelSvc.policyList">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{fieldTitle['fromstatus']}}</th>
+        <th>{{fieldTitle['event']}}</th>
+        <th>{{fieldTitle['tostatus']}}</th>
+        <th>{{fieldTitle['action']}}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item let-attrIndex="rowIndex">
+      <tr>
+        <td>{{item.fromStatusName}}</td>
+        <td>{{item.event}}</td>
+        <td>{{item.toStatusName}}</td>
+        <td class="text-center">
+          <div class="form-check">
+            <input type="checkbox" name="{{attrIndex + 'isSelect'}}" (change)="checkIsPolicySelected()"
+              [(ngModel)]="item.isSelected" class="form-check-input">
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </ni-table>
+  <div class="mt-3 d-flex justify-content-end">
+    
+    <button type="button" class="btn btn-sm btn-warning" (click)="resetPolicy()" [disabled]="!isPolicySelected">
+      <img src="../../../../assets/images/icons/repeat.svg" alt="icon" />
+      {{fieldTitle['reset']}}
+    </button>
+    <button type="button" class="btn btn-sm btn-success" [disabled]="!isPolicySelected" (click)="okPolicy()">
+      <img src="../../../../assets/images/icons/check-circle.svg" alt="icon" />
+      {{fieldTitle['ok']}}
+    </button>
+  </div>
+</p-dialog>

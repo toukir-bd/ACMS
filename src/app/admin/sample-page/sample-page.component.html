@@ -1,0 +1,208 @@
+<div class="actions-top-bar">
+  <div class="d-flex align-items-center justify-content-between w-100">
+    <div class="d-flex align-items-center">
+      <div class="form-row d-flex align-items-center">
+        <button class="btn btn-primary" *ngIf="!isShowEntry" (click)="onClickNew()" title="Create New">
+          <img src="../../../assets/images/icons/plus-circle.svg" alt="icon"/>
+          {{fieldTitle['new']}}
+        </button>
+        <button type="button" class="btn btn-success" *ngIf="isShowEntry" [disabled]="!samplePageForm.dirty" (click)="save(samplePageForm)">
+          <img src="../../../assets/images/icons/save.svg" alt="icon" />
+          {{ fieldTitle["save"] }}
+        </button>
+        <button class="btn btn-danger" *ngIf="!isShowEntry" (click)="onClickDeleteAll()">
+          <img src="../../../assets/images/icons/trash-2.svg" alt="icon"/>
+          {{ fieldTitle["delete"] }}
+        </button>
+        <button type="button" class="btn btn-warning" *ngIf="isShowEntry" [disabled]="!samplePageForm.dirty" (click)="reset()">
+          <img src="../../../assets/images/icons/repeat.png" alt="icon" />
+          {{ fieldTitle["reset"]}}
+        </button>
+        <button type="button" class="btn btn-danger" *ngIf="isShowEntry" (click)="isShowEntry = false">
+          <img src="../../../assets/images/icons/x-circle.svg" alt="icon"/>
+          {{ fieldTitle["close"]}}
+        </button>
+        <button class="btn iconic-btn refresh" title="Refresh" *ngIf="!isShowEntry" (click)="getSampleList()">
+          <i class="pi pi-refresh"></i>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <form class="rightActionForm" #notificationForm="ngForm" *ngIf="isShowEntry && samplePage.id > 0">
+        <div class="form-row d-flex align-items-center">
+          <div class="position-relative">
+            <button class="btn notify-btn" title="Comments" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../assets/images/icons/comments.svg" alt="icon" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-0 m-0 p-3">
+              <span class="triangle"></span>
+              <textarea
+                type="text"
+                name="comments"
+                maxlength="200"
+                class="form-control"
+                [maxLength]="200"
+                [(ngModel)]="comments"
+                placeholder="Comments..."
+                [style]="{ width: '320px' }"
+              ></textarea>
+            </div>
+          </div>
+          <div *ngFor="let event of eventList">
+              <button type="button" class="btn" [ngClass]="{'btn-primary':  !event.bgColor}" (click)="onClickEvent(event.documentWFDetailID)"  [ngStyle]="{'background-color': event.bgColor}">
+              <img *ngIf="event.icon" src="../../../assets/images/icons/{{event.icon}}.svg" alt="icon"/>
+                {{event.event}}
+              </button>
+          </div>
+        </div>
+      </form>
+      <app-page-notification (childDataChange)="onSelectTransaction($event)" (isRefreshList)="getSampleList()" class="d-flex align-items-center"></app-page-notification>
+    </div>
+  </div>
+</div>
+
+<div class="card-head mb-2 mt-5">
+  <h1 class="section-title">Sample Page</h1>
+</div>
+
+<form #samplePageForm="ngForm" [hidden]="!isShowEntry" [addValidators]="validationMsgObj" validationMessage="SampleValidation">
+  <div class="card-section">
+    <div class="top-card-box p-3 pb-1 mb-3">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>Code</label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  name="code"
+                  class="form-control"
+                  [(ngModel)]="samplePage.code"
+                  readonly
+                  placeholder="Code"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" *ngIf="samplePage.id > 0">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>Status</label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  name="statusName"
+                  class="form-control"
+                  [(ngModel)]="samplePage.statusName"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>Sample Page</label>
+              </div>
+              <div class="col-md-8">
+                <input
+                  type="text"
+                  name="sample"
+                  class="form-control"
+                  maxlength="200"
+                  [(ngModel)]="samplePage.sample"
+                  inputValidator
+                  placeholder="Type Sample."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-8">
+                <div class="form-check">
+                <input type="checkbox" [(ngModel)]="samplePage.isDraft" id="isDraft" name="isDraft" class="form-check-input">
+                <label for="isDraft" title="isDraft" class="form-check-label">Is Draft</label>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+
+
+      
+
+
+
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row" [hidden]="isShowEntry">
+  <div class="col-lg-12 col-sm-12 col-xs-12">
+    <div class="card-body">
+      <form #samplePageListForm="ngForm">
+        <div class="table-striped">
+          <app-ni-table [gridOption]="gridOption" [valueList]="sampleList" class="smaller-elements">
+            <ng-template pTemplate="header">
+              <tr>
+                <th class="text-center">
+                  <div class="form-check">
+                    <input type="checkbox" id="isSelectedAll" name="isSelectedAll" class="form-check-input" (change)="onChangeIsSelectedAll()"
+                      [(ngModel)]="isSelectedAll" />
+                  </div>
+                </th>
+                <th title="{{fieldTitle['code']}}">{{fieldTitle['code']}}</th>
+                <th title="Sample">Sample</th>
+                <th title="{{fieldTitle['status']}}">{{fieldTitle['status']}}</th>
+                <th title="Comment">Comment</th>
+                <th title="Event Date">Event Date</th>
+                <th title="Event User IP">Event User IP</th>
+                <th title="Event User">Event User</th>
+                <th title="{{fieldTitle['action']}}">{{fieldTitle['action']}}</th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr ngModelGroup="sampleListForm_{{item.id}}">
+                <td class="text-center">
+                  <div class="form-check">
+                      <input type="checkbox" name="isSelected" class="form-check-input" (change)="onChangeSelected(item)"
+                        [(ngModel)]="item.isSelected" />
+                  </div>
+                </td>
+                <td>{{ item.code }}</td>
+                <td>{{ item.sample }}</td>
+                <td>{{ item.statusName }}</td>
+                <td width="300">{{ item.comment }}</td>
+                <td>{{ item.eventDate }}</td>
+                <td>{{ item.eventUserIP }}</td>
+                <td>{{ item.userName }}</td>
+                <td class="text-center" style="width: 10%">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <button type="button" pButton pRipple icon="pi pi-pencil" class="p-button-success" (click)="edit(item)"></button>
+                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-danger" niDbclickPrevent (click)="delete(item)"></button>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </app-ni-table>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

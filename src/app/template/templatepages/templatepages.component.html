@@ -1,0 +1,3167 @@
+
+<!-----------Common Action Bar---------->
+<div class="actions-top-bar">
+  <div class="d-flex align-items-center justify-content-between w-100">
+    <div class="d-flex align-items-center">
+      <div class="form-row d-flex align-items-center">
+        <button class="btn btn-primary">
+          <img src="../../../assets/images/icons/plus-circle.svg" alt="icon"/>
+          New
+        </button>
+        <button class="btn btn-warning">
+          <img src="../../../assets/images/icons/edit.svg" alt="icon"/>
+          Edit
+        </button>
+        <button class="btn btn-danger">
+          <img src="../../../assets/images/icons/trash-2.svg" alt="icon"/>
+          Delete
+        </button>
+        <button class="btn btn-success">
+          <img src="../../../assets/images/icons/save.svg" alt="icon"/>
+          Save
+        </button>
+        <button class="btn btn-warning">
+          <img src="../../../assets/images/icons/repeat.svg" alt="icon"/>
+          Reset
+        </button>
+        <button class="btn btn-danger">
+          <img src="../../../assets/images/icons/x-circle.svg" alt="icon"/>
+          Cancel
+        </button>
+        <button class="btn iconic-btn refresh">
+          <i class="pi pi-refresh"></i>
+        </button>
+        <button class="btn iconic-btn print">
+          <i class="pi pi-print"></i>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <form class="rightActionForm">
+        <div class="form-row d-flex align-items-center">
+          <div class="position-relative">
+            <button class="btn notify-btn" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../assets/images/icons/comments.svg" alt="icon" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-end p-0 m-0 p-3">
+              <span class="triangle"></span>
+              <textarea
+                type="text"
+                name="comments"
+                class="form-control"
+                placeholder="Comments..."
+                [style]="{ width: '320px' }"
+              ></textarea>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success" title="Recommend">
+            <img src="../../../assets/images/icons/check-circle.svg" alt="icon"/>
+            Recommend
+            <!-- Create
+                  Verify
+                  Approve -->
+          </button>
+          <button type="button" class="btn btn-warning">
+            <i class="pi pi-undo"></i>
+            Withdraw
+          </button>
+          <button type="button" class="btn btn-secondary">
+            <i class="pi pi-arrow-circle-left"></i>
+            Decline
+          </button>
+          <button type="button" class="btn btn-danger">
+            <img src="../../../assets/images/icons/x-circle.svg" alt="icon"/>
+            Cancel
+          </button>
+        </div>
+      </form>
+      <div class="w-auto">
+        <button class="btn notify-btn" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../../assets/images/icons/color-notification.svg" alt="icon"/>
+          <span>1</span>
+        </button>
+        <div class="dropdown-menu p-0 m-0 p-3">
+          <span class="triangle"></span>
+          <table class="normal-table">
+            <tr>
+              <th>Transaction No</th>
+              <th>Status</th>
+              <th>Previous User</th>
+              <th>Date & Time</th>
+              <th>Comments</th>
+            </tr>
+            <tr>
+              <td>JV-2025-0021</td>
+              <td>Verified</td>
+              <td>Shamim</td>
+              <td>14-05-2025 09:45 AM</td>
+              <td>Forward</td>
+            </tr>
+            <tr>
+              <td>JV-2025-0017</td>
+              <td>Verified</td>
+              <td>Arif</td>
+              <td>14-05-2025 05:25 AM</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>JV-2025-0019</td>
+              <td>Verified</td>
+              <td>Ziaur</td>
+              <td>14-05-2025 11:25 AM</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!----------Item Requirements Plan List (Local Purchase)----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Item Requirements Plan List (Local Purchase)</h1>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="form-check">
+                <input class="form-check-input" name="all1" id="all1" type="checkbox"/>
+                <label for="all1" class="form-check-label">All</label>
+              </div>
+            </div>
+          </th>
+          <th>Requirement No</th>
+          <th>Version</th>
+          <th>Budget Year</th>
+          <th>Location</th>       
+          <th>Prepared Date</th>       
+          <th>Prepared By</th>       
+          <th class="text-center">Remarks</th>       
+          <th class="text-center">Doc</th>       
+          <th class="text-center">Status</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------Item Requirements Plan List (Local Purchase) Edit Mode----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Item Requirements Plan List (Local Purchase) Edit Mode</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Requirement Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Location</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <button class="btn btn-primary" type="button">
+            <img src="../../../assets/images/icons/download.svg"/>
+            Upload/View Justification Doc.
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <div class="row align-items-center justify-content-between mb-3">
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-start">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Raw Materials 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Consumable Items 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Packaging Items 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Spare-Parts 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Stationary Items 
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/download.svg" alt="icon"> Download
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/upload.svg" alt="icon"> Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-ni-table [gridOption]="gridOption" [valueList]="list" class="scrollable-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="2">Item</th>
+          <th rowspan="2">Item Description</th>
+          <th rowspan="2">Buyer</th>
+          <th rowspan="2">Customer</th>       
+          <th rowspan="2">BIC</th>       
+          <th rowspan="2">Brand</th>       
+          <th rowspan="2">Supplier</th>       
+          <th rowspan="2">SIC</th>       
+          <th rowspan="2">S/UOM</th>       
+          <th colspan="12" class="text-center">Requirement Qty</th>       
+          <th rowspan="2">Total</th>       
+          <th rowspan="2">Action</th>       
+        </tr>
+        <tr>
+          <th class="text-center">Jan</th>
+          <th class="text-center">Feb</th>
+          <th class="text-center">Mar</th>
+          <th class="text-center">Apr</th>       
+          <th class="text-center">May</th>       
+          <th class="text-center">Jun</th>       
+          <th class="text-center">Jul</th>       
+          <th class="text-center">Aug</th>       
+          <th class="text-center">Sep</th>       
+          <th class="text-center">Oct</th>       
+          <th class="text-center">Nov</th>       
+          <th class="text-center">Dec</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Remarks</label>
+            </div>
+            <div class="col-md-8">
+              <textarea class="form-control" id="name" type="text" placeholder="Type Status"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check my-2">
+          <input class="form-check-input" name="draft" id="draft" type="checkbox"/>
+          <label for="draft" class="form-check-label">Draft</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!-----------Item Requirements Plan List (Local Item List Modal)---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Item Requirements Plan List (Local Item List Modal)</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card-box p-3 pb-1 mb-3">
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Item</th>
+                <th>Item Type</th>
+                <th>Category</th>
+                <th>Description</th>       
+                <th>Item Code</th>       
+                <th>Action</th>             
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>    
+                <td></td>
+                <td></td>      
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="d-flex align-items-center justify-content-end mt-3">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/check-circle.svg" alt="icon"> Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!----------Item Requirements Plan List (Foreign Purchase)----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Item Requirements Plan List (Foreign Purchase)</h1>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="form-check">
+                <input class="form-check-input" name="all1" id="all1" type="checkbox"/>
+                <label for="all1" class="form-check-label">All</label>
+              </div>
+            </div>
+          </th>
+          <th>Requirement No</th>
+          <th>Version</th>
+          <th>Budget Year</th>
+          <th>Location</th>       
+          <th>Prepared Date</th>       
+          <th>Prepared By</th>       
+          <th class="text-center">Remarks</th>       
+          <th class="text-center">Doc</th>       
+          <th class="text-center">Status</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------Item Requirements Plan List (Foreign Purchase) Edit Mode----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Item Requirements Plan List (Foreign Purchase) Edit Mode</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Requirement Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Location</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <button class="btn btn-primary" type="button">
+            <img src="../../../assets/images/icons/download.svg"/>
+            Upload/View Justification Doc.
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <div class="row align-items-center justify-content-between mb-3">
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-start">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Raw Materials 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Consumable Items 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Packaging Items 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Spare-Parts 
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              <img src="../../../assets/images/icons/allocate.svg" alt="icon"> Stationary Items 
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/download.svg" alt="icon"> Download
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/upload.svg" alt="icon"> Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-ni-table [gridOption]="gridOption" [valueList]="list" class="scrollable-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="2">Item</th>
+          <th rowspan="2">Item Description</th>
+          <th rowspan="2">Buyer</th>
+          <th rowspan="2">Customer</th>       
+          <th rowspan="2">BIC</th>       
+          <th rowspan="2">Brand</th>       
+          <th rowspan="2">Supplier</th>       
+          <th rowspan="2">SIC</th>       
+          <th rowspan="2">S/UOM</th>       
+          <th colspan="12" class="text-center">Requirement Qty</th>       
+          <th rowspan="2">Total</th>       
+          <th rowspan="2">Action</th>       
+        </tr>
+        <tr>
+          <th class="text-center">Jan</th>
+          <th class="text-center">Feb</th>
+          <th class="text-center">Mar</th>
+          <th class="text-center">Apr</th>       
+          <th class="text-center">May</th>       
+          <th class="text-center">Jun</th>       
+          <th class="text-center">Jul</th>       
+          <th class="text-center">Aug</th>       
+          <th class="text-center">Sep</th>       
+          <th class="text-center">Oct</th>       
+          <th class="text-center">Nov</th>       
+          <th class="text-center">Dec</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Remarks</label>
+            </div>
+            <div class="col-md-8">
+              <textarea class="form-control" id="name" type="text" placeholder="Type Status"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check my-2">
+          <input class="form-check-input" name="draft" id="draft" type="checkbox"/>
+          <label for="draft" class="form-check-label">Draft</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!-----------Item Requirements Plan List (Foreign Item List Modal)---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Item Requirements Plan List (Foreign Item List Modal)</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card-box p-3 pb-1 mb-3">
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Item</th>
+                <th>Item Type</th>
+                <th>Category</th>
+                <th>Description</th>       
+                <th>Item Code</th>       
+                <th>Action</th>             
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>    
+                <td></td>
+                <td></td>      
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="d-flex align-items-center justify-content-end mt-3">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/check-circle.svg" alt="icon"> Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+<!----------Monthly Budget Against RQMT List----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Monthly Budget Against RQMT List</h1>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="form-check">
+                <input class="form-check-input" name="all1" id="all1" type="checkbox"/>
+                <label for="all1" class="form-check-label">All</label>
+              </div>
+            </div>
+          </th>
+          <th>Monthly Budget No</th>
+          <th>Version</th>
+          <th>Budget Dt&Tm</th>
+          <th>Budget Year</th>
+          <th>Budget Month</th>      
+          <th>Prepared By</th>       
+          <th>Remarks</th>         
+          <th class="text-center">Status</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------Monthly Budget Against RQMT Plan Edit----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Monthly Budget Against RQMT Plan</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Month</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Monthly Budget No</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Budget Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Verifiction Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Approval Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <button class="btn btn-primary" type="button">
+            <img src="../../../assets/images/icons/external-link.svg"/>
+            Select Yearly Requirement Plan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list" class="scrollable-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Item</th>
+          <th>Item Description</th>
+          <th>Item Code</th>
+          <th>Buyer</th>       
+          <th>Customer</th>       
+          <th>BIC</th>       
+          <th>Brand</th>       
+          <th>Supplier</th>       
+          <th>SIC</th>       
+          <th>S/UOM</th>       
+          <th>Stk Qty</th>       
+          <th>YTR</th>       
+          <th>Boked</th>       
+          <th>Mini. Stk Qty</th>       
+          <th>RQMT Qty</th>       
+          <th>Ttl Isud Qty</th>       
+          <th>Adjust Type</th>       
+          <th>Adjust Qty</th>       
+          <th>Budget Qty</th>       
+          <th>Remarks</th>       
+          <th>Action</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+          <td></td>      
+          <td></td>      
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Remarks</label>
+            </div>
+            <div class="col-md-8">
+              <textarea class="form-control" id="name" type="text" placeholder="Type Status"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check my-2">
+          <input class="form-check-input" name="draft" id="draft" type="checkbox"/>
+          <label for="draft" class="form-check-label">Draft</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!-----------Yearly Requirement(Local Purchase)---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Yearly Requirement(Local Purchase)</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card-box p-3 pb-1 mb-3">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">year</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Month</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-ni-table [gridOption]="gridOptionAnother" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Item</th>
+                <th>Item Description</th>
+                <th>Buyer</th>
+                <th>Customer</th>       
+                <th>BIC</th>       
+                <th>Brand</th>             
+                <th>Supplier</th>             
+                <th>SIC</th>             
+                <th>S/UOM</th>             
+                <th>Monthly RQMT Qty</th>             
+                <th>Action</th>             
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>    
+                <td></td>
+                <td></td>      
+                <td></td>
+                <td></td>      
+                <td></td>      
+                <td></td>      
+                <td></td>      
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="d-flex align-items-center justify-content-end mt-3">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/check-circle.svg" alt="icon"> Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!-----------Yearly Requirement(Local Purchase)---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Preview(Pop Up)</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card-box p-3 pb-1 mb-3">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Year</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Buyer</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Brand</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">S/UOM</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Item</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Customer</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Supplier</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">Item Desc</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">BIC</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">SIC</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <table class="normal-table plan-prev w-100">
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>Plan Qty</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Jan-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Feb-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Mar-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Apr-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>May-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Jun-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Jul-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Aug-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Sep-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Oct-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Nov-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Dec-24</td>
+                    <td>2000.00</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total</td>
+                    <td>24000.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+<!----------Monthly Budget----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Monthly Budget</h1>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="form-check">
+                <input class="form-check-input" name="all1" id="all1" type="checkbox"/>
+                <label for="all1" class="form-check-label">All</label>
+              </div>
+            </div>
+          </th>
+          <th>Monthly Budget No</th>
+          <th>Version</th>
+          <th>Budget Dt&Tm</th>
+          <th>Budget Year</th>
+          <th>Budget Month</th>      
+          <th>Prepared By</th>              
+          <th class="text-center">Status</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------Monthly Budget Entry----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Monthly Budget Entry</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Month</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Monthly Budget No</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Budget Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Approval Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <button class="btn btn-primary" type="button">
+            <img src="../../../assets/images/icons/external-link.svg"/>
+            View Monthly Budget Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <table class="normal-table">
+      <thead>
+        <tr>
+          <th class="text-center">Head</th>
+          <th class="ni-sup text-center">Budget</th>
+          <th class="text-center">Additional Budget</th>
+          <th class="text-center">Ttl Additional Budget</th>       
+          <th class="text-center">Total</th>       
+          <th class="text-center">Tolerance%</th>      
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly Allocated Budget</td>
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td>    
+        </tr>
+        <tr>
+          <td colspan="6"><b>Budget Item's</b></td>   
+        </tr>
+        <tr>
+          <td>Monthly Budget(Metrial's)</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td>Fashion Order's</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td>New Development</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="text-end">Total</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td class="text-end">Total Monthly Budget</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end"></td> 
+        </tr>
+      </tfoot>
+    </table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------Monthly Budget Edit----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Monthly Budget Edit</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Budget Month</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Monthly Budget No</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Budget Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Approval Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <button class="btn btn-primary" type="button">
+            <img src="../../../assets/images/icons/external-link.svg"/>
+            View Monthly Budget Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <table class="normal-table">
+      <thead>
+        <tr>
+          <th class="text-center">Head</th>
+          <th class="text-center">Budget</th>
+          <th class="text-center">Additional Budget</th>
+          <th class="text-center">Ttl Additional Budget</th>       
+          <th class="text-center">Total</th>       
+          <th class="text-center">Tolerance%</th>      
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monthly Allocated Budget</td>
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td>    
+        </tr>
+        <tr>
+          <td colspan="6"><b>Budget Item's</b></td>   
+        </tr>
+        <tr>
+          <td>Monthly Budget(Metrial's)</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td>Fashion Order's</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td>New Development</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="text-end">Total</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end">10%</td> 
+        </tr>
+        <tr>
+          <td class="text-end">Total Monthly Budget</td>  
+          <td class="text-end">15,000,000</td>
+          <td class="text-end">0</td>     
+          <td class="text-end">0</td>    
+          <td class="text-end">15,000,000</td>    
+          <td class="text-end"></td> 
+        </tr>
+      </tfoot>
+    </table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+<!----------View Monthly Budget Detial----------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">View Monthly Budget Detial</h1>
+  </div>
+  <div class="top-card-box top-card-box p-3 pb-1 mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Year</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label class="ni-sup">Month</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Monthly Budget No</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Budget Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Verifiction Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Approval Dt&Tm</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Number</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Revise Date</label>
+            </div>
+            <div class="col-md-8">
+              <p-select appendTo="body" 
+                formControlName="dataType"
+                placeholder="Select Category"
+                textProperty="dataTypeText"
+                inputValidator
+                [style]="{ width: '100%' }">
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list" class="scrollable-table">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Item</th>
+          <th>Item Description</th>
+          <th>Item Code</th>
+          <th>Brand</th>       
+          <th>Supplier</th>       
+          <th>SIC</th>       
+          <th>Buyer</th>       
+          <th>Customer</th>       
+          <th>BIC</th>       
+          <th>S/UOM</th>       
+          <th>RQMT Qty</th>       
+          <th>Adjust Type</th>       
+          <th>Additional Qty</th>       
+          <th>Total Additional Qty</th> 
+          <th>Budget Qty</th> 
+          <th>Rate</th>          
+          <th>Budget</th>       
+          <th>Remarks</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+          <td></td>      
+          <td></td>      
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>       
+        </tr>
+      </ng-template>
+    </app-ni-table>
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <label>Prepared By</label>
+            </div>
+            <div class="col-md-8">
+              <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Remarks</label>
+            </div>
+            <div class="col-md-8">
+              <textarea class="form-control" id="name" type="text" placeholder="Type Status"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check my-2">
+          <input class="form-check-input" name="draft" id="draft" type="checkbox"/>
+          <label for="draft" class="form-check-label">Draft</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-end">
+          <div class="form-row d-flex justify-content-end">
+            <button type="button" disabled="" class="btn btn-sm btn-danger">
+              <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-warning">
+              <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh 
+            </button>
+            <button type="button" disabled="" class="btn btn-sm btn-success">
+              <img src="../../../assets/images/icons/save.svg" alt="icon"> Save 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-----------Applicaitons---------->
+<div class="card-section mt-5">
+  <div class="card-head mb-2">
+    <h1 class="section-title">Applicaitons</h1>
+  </div>
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Applicaiton No</th>
+          <th>Apl Dt & Tm</th>
+          <th>Item</th>
+          <th>Item Description</th>       
+          <th>Location</th>       
+          <th>Requested By</th>       
+          <th>Prepared By</th>       
+          <th class="text-center">Remarks</th>       
+          <th class="text-center">Status</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>    
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>      
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+<!-----------Status Setup---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Status Setup</h1>
+</div>
+<div class="card-section">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card-box p-3">
+        <form>
+          <div class="form-group">
+            <label class="ni-sup">Status Category</label>
+            <p-select appendTo="body" 
+              formControlName="dataType"
+              placeholder="Select Category"
+              textProperty="dataTypeText"
+              inputValidator
+              [style]="{ width: '100%' }">
+            </p-select>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">Status</label>
+            <input class="form-control" id="name" type="text" placeholder="Type Status"/>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">Code</label>
+            <input class="form-control" id="name" type="text" placeholder="Type Code"/>
+          </div>
+          <div class="form-check my-2">
+            <input class="form-check-input" id="isActive3" name="isActive3" type="checkbox"/>
+            <label class="form-check-label" for="isActive3">Active</label>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card-box p-3">
+        <app-ni-table [gridOption]="gridOptionAnother" [valueList]="list">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Status Category</th>
+              <th>Status</th>
+              <th>Code</th>            
+              <th>Active</th>       
+              <th>Action</th>       
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>     
+              <td></td>    
+              <td></td>    
+            </tr>
+          </ng-template>
+        </app-ni-table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+<!-----------Event Setup---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Event Setup</h1>
+</div>
+<div class="card-section">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card-box p-3">
+        <form>
+          <div class="form-group">
+            <label class="ni-sup">Event</label>
+            <input class="form-control" id="name" type="text" placeholder="Type Event"/>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">Code</label>
+            <input class="form-control" id="name" type="text" placeholder="Type Code"/>
+          </div>
+          <div class="form-check my-2">
+            <input class="form-check-input" id="isActive3" name="isActive3" type="checkbox"/>
+            <label class="form-check-label" for="isActive3">Active</label>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card-box p-3">
+        <app-ni-table [gridOption]="gridOptionAnother" [valueList]="list">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Event</th>
+              <th>Code</th>            
+              <th>Active</th>       
+              <th>Action</th>       
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>     
+              <td></td>    
+            </tr>
+          </ng-template>
+        </app-ni-table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+<!-----------WF Policy Setup---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">WF Policy Setup</h1>
+</div>
+<div class="card-section">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card-box p-3">
+        <form>
+          <div class="form-group">
+            <label class="ni-sup">Policy</label>
+            <p-select appendTo="body" 
+              formControlName="dataType"
+              placeholder="Select Policy"
+              textProperty="dataTypeText"
+              inputValidator
+              [style]="{ width: '100%' }">
+            </p-select>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">From Status</label>
+            <p-select appendTo="body" 
+              formControlName="dataType"
+              placeholder="Select Status"
+              textProperty="dataTypeText"
+              inputValidator
+              [style]="{ width: '100%' }">
+            </p-select>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">Event</label>
+            <p-select appendTo="body" 
+              formControlName="dataType"
+              placeholder="Select Event"
+              textProperty="dataTypeText"
+              inputValidator
+              [style]="{ width: '100%' }">
+            </p-select>
+          </div>
+          <div class="form-group">
+            <label class="ni-sup">To Status</label>
+            <p-select appendTo="body" 
+              formControlName="dataType"
+              placeholder="Select Status"
+              textProperty="dataTypeText"
+              inputValidator
+              [style]="{ width: '100%' }">
+            </p-select>
+          </div>
+          <div class="form-check my-2">
+            <input class="form-check-input" id="isActive3" name="isActive3" type="checkbox"/>
+            <label class="form-check-label" for="isActive3">Active</label>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card-box p-3">
+        <app-ni-table [gridOption]="gridOptionAnother" [valueList]="list">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Status</th>
+              <th>Event</th>
+              <th>Actor</th>
+              <th>Status</th>
+              <th>IsSeqBsd</th>            
+              <th>Active</th>       
+              <th>Action</th>       
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>     
+              <td></td>    
+              <td></td>    
+              <td></td>    
+              <td></td>    
+            </tr>
+          </ng-template>
+        </app-ni-table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+<!-----------WF Policy Setup---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Workflow Setup</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="top-card-box p-3 pb-1 mb-3">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>Workflow RefNo</label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" id="name" type="text" placeholder="WF#7340201"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="ni-sup">Document</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" 
+                  formControlName="dataType"
+                  placeholder="Select Document"
+                  textProperty="dataTypeText"
+                  inputValidator
+                  [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">WF Schema</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" 
+                  formControlName="dataType"
+                  placeholder="Select Schema"
+                  textProperty="dataTypeText"
+                  inputValidator
+                  [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">Organization</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" 
+                  formControlName="dataType"
+                  placeholder="Select Organization"
+                  textProperty="dataTypeText"
+                  inputValidator
+                  [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label class="">Project</label>
+              </div>
+              <div class="col-md-8">
+                <p-select appendTo="body" 
+                  formControlName="dataType"
+                  placeholder="Select Project"
+                  textProperty="dataTypeText"
+                  inputValidator
+                  [style]="{ width: '100%' }">
+                </p-select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="card-section">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <div class="top-card-box p-3">
+        <p-accordion [(value)]="openPanels" [multiple]="true" class="d-flex flex-column gap-3">
+
+          <!---------------forward-panel----------------->
+          <p-accordion-panel value="forward">
+            <div class="header-with-button">
+              <p-accordion-header>Forward Policy</p-accordion-header>
+              <div class="form-check">
+                <input id="isActive13" type="checkbox" class="form-check-input" />
+                <label for="isActive13" class="form-check-label">Edit WF Schema</label>
+              </div>
+            </div>
+            <p-accordion-content>
+              <app-ni-table [gridOption]="gridOptionHideAll" [valueList]="list">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th class="ni-sup">Status</th>
+                    <th>User(Actor)</th>
+                    <th class="ni-sup">Sequence</th>       
+                    <th>Action</th>       
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>     
+                    <td></td>     
+                  </tr>
+                </ng-template>
+              </app-ni-table>
+              <!---This will be open on Edit mode-->
+              <!-- <div class="mt-3 d-flex justify-content-between">
+                <button class="btn btn-primary" type="button">
+                  <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+                  Work Flow Schema
+                </button>
+                <div class="d-inline-flex justify-content-end gap-3">
+                  <div class="form-group mb-0">
+                    <div class="row align-items-center">
+                      <div class="col-md-4">
+                        <label class="ni-sup">WF Schema</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check my-2">
+                    <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                    <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+                  </div>
+                </div>
+              </div> -->
+              <div class="mt-3 d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button type="button" disabled="" class="btn btn-sm btn-danger">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-warning">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-success">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+                  </button>
+                </div>
+              </div> 
+            </p-accordion-content>
+          </p-accordion-panel>
+
+          <!---------------backward-panel----------------->
+          <p-accordion-panel value="backward">
+            <div class="header-with-button">
+              <p-accordion-header>Backward Policy</p-accordion-header>
+              <div class="form-check">
+                <input id="isActive14" type="checkbox" class="form-check-input" />
+                <label for="isActive14" class="form-check-label">Edit WF Schema</label>
+              </div>
+            </div>
+            <p-accordion-content>
+              <app-ni-table [gridOption]="gridOptionHideAll" [valueList]="list">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>From Status</th>
+                    <th>Event</th>
+                    <th>To Status</th>       
+                    <th>Action</th>       
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>     
+                    <td></td>     
+                  </tr>
+                </ng-template>
+              </app-ni-table>
+              <div class="mt-3 d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button type="button" disabled="" class="btn btn-sm btn-danger">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-warning">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-success">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+                  </button>
+                </div>
+              </div>
+            </p-accordion-content>
+          </p-accordion-panel>
+
+          <!---------------cancel-panel----------------->
+          <p-accordion-panel value="cancel">
+            <div class="header-with-button">
+              <p-accordion-header>Cancellation Policy</p-accordion-header>
+              <div class="form-check">
+                <input id="isActive15" type="checkbox" class="form-check-input" />
+                <label for="isActive15" class="form-check-label">Edit WF Schema</label>
+              </div>
+            </div>
+            <p-accordion-content>
+              <app-ni-table [gridOption]="gridOptionHideAll" [valueList]="list">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>From Status</th>
+                    <th>Event</th>
+                    <th>To Status</th>       
+                    <th>Action</th>       
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>     
+                    <td></td>     
+                  </tr>
+                </ng-template>
+              </app-ni-table>
+              <div class="mt-3 d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button type="button" disabled="" class="btn btn-sm btn-danger">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-warning">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-success">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+                  </button>
+                </div>
+              </div>
+            </p-accordion-content>
+          </p-accordion-panel>
+
+          <!---------------withdraw-panel----------------->
+          <p-accordion-panel value="withdraw">
+            <div class="header-with-button">
+              <p-accordion-header>Withdraw Mode</p-accordion-header>
+              <div class="form-check">
+                <input id="isActive16" type="checkbox" class="form-check-input" />
+                <label for="isActive16" class="form-check-label">Edit WF Schema</label>
+              </div>
+            </div>
+            <p-accordion-content>
+              <app-ni-table [gridOption]="gridOptionHideAll" [valueList]="list">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>From Status</th>
+                    <th>Event</th>
+                    <th>To Status</th>       
+                    <th>Action</th>       
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>     
+                    <td></td>     
+                  </tr>
+                </ng-template>
+              </app-ni-table>
+              <div class="mt-3 d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button type="button" disabled="" class="btn btn-sm btn-danger">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-warning">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-success">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+                  </button>
+                </div>
+              </div> 
+            </p-accordion-content>
+          </p-accordion-panel>
+
+          <!---------------reopen-panel----------------->
+          <p-accordion-panel value="reopen">
+            <div class="header-with-button">
+              <p-accordion-header>Re-Open Policy</p-accordion-header>
+              <div class="form-check">
+                <input id="isActive17" type="checkbox" class="form-check-input" />
+                <label for="isActive17" class="form-check-label">Edit WF Schema</label>
+              </div>
+            </div>
+            <p-accordion-content>
+              <app-ni-table [gridOption]="gridOptionHideAll" [valueList]="list">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>From Status</th>
+                    <th>Event</th>
+                    <th>User(Actor)</th>
+                    <th>To Status</th>       
+                    <th>Action</th>       
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                  </tr>
+                </ng-template>
+              </app-ni-table>
+              <div class="mt-3 d-flex align-items-center justify-content-end">
+                <div class="form-row d-flex justify-content-end">
+                  <button type="button" disabled="" class="btn btn-sm btn-danger">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-warning">
+                    <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+                  </button>
+                  <button type="button" disabled="" class="btn btn-sm btn-success">
+                    <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+                  </button>
+                </div>
+              </div> 
+            </p-accordion-content>
+          </p-accordion-panel>
+
+        </p-accordion>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+<!------Previous Tab Group------>
+<!-- <div class="row">
+  <div class="col-md-3">
+    <div class="card-box">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" data-bs-target="#forward" data-bs-toggle="pill">Forward Policy</button>
+        <button class="nav-link" data-bs-target="#backward" data-bs-toggle="pill">Backward Policy</button>
+        <button class="nav-link" data-bs-target="#cancellation" data-bs-toggle="pill">Cancellation Policy</button>
+        <button class="nav-link" data-bs-target="#withdraw" data-bs-toggle="pill">Withdraw Mode</button>
+        <button class="nav-link" data-bs-target="#reopen" data-bs-toggle="pill">Re-Open Policy</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="forward">
+        <div class="card-box p-3">
+          <div class="form-check mb-3">
+            <input id="isActive13" name="isActive13" type="checkbox" class="form-check-input">
+            <label for="isActive13" class="form-check-label">Edit WF Schema</label>
+          </div>
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th class="ni-sup">Status</th>
+                <th>User(Actor)</th>
+                <th class="ni-sup">Sequence</th>       
+                <th>Action</th>       
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>     
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-primary" type="button">
+              <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+              Work Flow Schema
+            </button>
+            <div class="d-inline-flex justify-content-end gap-3">
+              <div class="form-group mb-0">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">WF Schema</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check my-2">
+                <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="backward">
+        <div class="card-box p-3">
+          <div class="d-inline-block align-items-center">
+            <div class="form-check mb-3">
+              <input id="isActive15" name="isActive15" type="checkbox" class="form-check-input">
+              <label for="isActive15" class="form-check-label">Edit WF Schema</label>
+            </div>
+            <div class="form-check mb-3">
+              <input id="isActive16" name="isActive16" type="checkbox" class="form-check-input">
+              <label for="isActive16" class="form-check-label">Is Sequence Based</label>
+            </div>
+          </div>
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>From Status</th>
+                <th>Event</th>
+                <th>To Status</th>       
+                <th>Action</th>       
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>     
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-primary" type="button">
+              <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+              Work Flow Schema
+            </button>
+            <div class="d-inline-flex justify-content-end gap-3">
+              <div class="form-group mb-0">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">WF Schema</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check my-2">
+                <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-danger">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cancellation">
+        <div class="card-box p-3">
+          <div class="form-check mb-3">
+            <input id="isActive15" name="isActive15" type="checkbox" class="form-check-input">
+            <label for="isActive15" class="form-check-label">Edit WF Schema</label>
+          </div>
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>From Status</th>
+                <th>Event</th>
+                <th>To Status</th>       
+                <th>Action</th>       
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>     
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-primary" type="button">
+              <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+              Work Flow Schema
+            </button>
+            <div class="d-inline-flex justify-content-end gap-3">
+              <div class="form-group mb-0">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">WF Schema</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check my-2">
+                <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-danger">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="tab-pane fade" id="withdraw">
+        <div class="card-box p-3">
+          <div class="form-check mb-3">
+            <input id="isActive15" name="isActive15" type="checkbox" class="form-check-input">
+            <label for="isActive15" class="form-check-label">Edit WF Schema</label>
+          </div>
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>From Status</th>
+                <th>Event</th>
+                <th>To Status</th>       
+                <th>Action</th>       
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>     
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-primary" type="button">
+              <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+              Work Flow Schema
+            </button>
+            <div class="d-inline-flex justify-content-end gap-3">
+              <div class="form-group mb-0">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">WF Schema</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check my-2">
+                <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-danger">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="tab-pane fade" id="reopen">
+        <div class="card-box p-3">
+          <div class="form-check mb-3">
+            <input id="isActive15" name="isActive15" type="checkbox" class="form-check-input">
+            <label for="isActive15" class="form-check-label">Edit WF Schema</label>
+          </div>
+          <app-ni-table [gridOption]="gridOption" [valueList]="list">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>From Status</th>
+                <th>Event</th>
+                <th>User(Actor)</th>
+                <th>To Status</th>       
+                <th>Action</th>       
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>     
+                <td></td>     
+                <td></td>     
+              </tr>
+            </ng-template>
+          </app-ni-table>
+          <div class="mt-3 d-flex justify-content-between">
+            <button class="btn btn-primary" type="button">
+              <img src="../../../assets/images/icons/external-link.svg" alt="icon"/>
+              Work Flow Schema
+            </button>
+            <div class="d-inline-flex justify-content-end gap-3">
+              <div class="form-group mb-0">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <label class="ni-sup">WF Schema</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input class="form-control" id="name" type="text" placeholder="Type workflow Schema"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check my-2">
+                <input id="isActive14" name="isActive14" type="checkbox" class="form-check-input">
+                <label for="isActive14" class="form-check-label">Workflow schema use as globally</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-danger">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Refresh
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+<!-----------Workflow List---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">Workflow List</h1>
+</div>
+<div class="card-section">
+  <div class="card-box p-3">
+    <app-ni-table [gridOption]="gridOption" [valueList]="list">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Workflow Number</th>
+          <th>Workflow Name</th>
+          <th>Doc Name</th>
+          <th>Project</th>       
+          <th>Organization</th>       
+          <th>WF Schema</th>       
+          <th>Action</th>       
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>     
+          <td></td>     
+          <td></td>     
+          <td></td>     
+          <td></td>     
+        </tr>
+      </ng-template>
+    </app-ni-table>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+<!-----------WF Implementation Sample Page---------->
+<div class="card-head mb-2">
+  <h1 class="section-title">WF Implementation Sample Page</h1>
+</div>
+<div class="card-section">
+  <form>
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card-box p-3 pb-1 mb-3">
+          <h1>WF Implementation Sample Page</h1>
+          <div class="form-group">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <label>Workflow RefNo</label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" id="name" type="text" placeholder="WF#7340201"/>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <div class="form-row d-flex justify-content-end">
+              <button type="button" disabled="" class="btn btn-sm btn-danger">
+                <img src="../../../assets/images/icons/repeat.png" alt="icon"> Reset
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-warning">
+                <img src="../../../assets/images/icons/repeat.svg" alt="icon"> Refresh
+              </button>
+              <button type="button" disabled="" class="btn btn-sm btn-success">
+                <img src="../../../assets/images/icons/save.svg" alt="icon"> Save
+              </button>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+

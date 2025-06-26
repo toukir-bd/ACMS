@@ -1,0 +1,40 @@
+<button class="btn notify-btn" data-bs-toggle="dropdown" aria-expanded="false">
+  <img src="../../../assets/images/icons/color-notification.svg" alt="icon" />
+  <span>{{ notificationList.length }}</span>
+</button>
+
+<div class="dropdown-menu dropdown-menu-end p-0 m-0 p-3">
+  <span class="triangle"></span>
+  <div class="d-flex flex-column gap-3">
+    <div *ngFor="let item of notificationList" class="notify-box p-3">
+      <div class="d-flex align-items-start justify-content-between">
+        <div class="d-flex flex-column">
+          <h3>
+            <span [style.background-color]="item.colorCode || '#eeeeee'"></span>
+            Ref No: {{ item.transactionCode }}
+          </h3>
+          <div class="head-line d-flex align-items-center gap-3">
+            <span>{{ item.eventDate }}</span>
+            <span>{{ item.eventTime }}</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" [style.color]="item.colorCode || '#eeeeee'" (click)="showDocTransaction(item)">
+          <i class="pi pi-history"></i>
+          History
+        </button>
+      </div>
+      <div class="notify-content-box" (click)="onClickTransaction(item.transactionID)">
+        <p><b>Creator</b>: {{ item.creator }}</p>
+        <p><b>Last User</b>: {{ item.lastUser }}</p>
+        <p><b>{{fieldTitle['event']}}</b>: {{item.event}}</p>
+        <p>
+          <b>Status</b> :
+          <span [style.color]="item.colorCode || '#eeeeee'">
+            {{ item.statusName }}
+          </span>
+        </p>
+        <p><b>Comments</b>: {{ item.comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

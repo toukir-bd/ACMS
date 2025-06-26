@@ -1,0 +1,164 @@
+<div class="card-head mb-2">
+  <h1 class="section-title">Event Setup</h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card-box p-3">
+      <form
+        #eventSetupForm="ngForm"
+        class="divided"
+        [addValidators]="validationMsgObj"
+        validationMessage="eventSetupValidationModel"
+      >
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["event"] }}</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="modelSvc.eventSetupModel.event"
+            inputValidator
+            placeholder="Type Event Name"
+            name="event"
+          />
+        </div>
+        <div class="form-group">
+          <label title="" class="ni-sup">{{ fieldTitle["code"] }}</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="modelSvc.eventSetupModel.code"
+            inputValidator
+            placeholder="Type Event Code"
+            name="code"
+          />
+        </div>
+        <label title="">{{ fieldTitle["icon"] }}</label>
+        <div class="form-group">
+          <p-select
+            appendTo="body"
+            [filter]="true"
+            [options]="icons | keyvalue"
+            name="icon"
+            [(ngModel)]="modelSvc.eventSetupModel.icon"
+            placeholder="Select Status Category"
+            optionLabel="statusCategory"
+            optionValue="key"
+            optionLabel="value"
+            [style]="{ width: '100%' }"
+          >
+          </p-select>
+        </div>
+        <div class="form-group d-flex">
+          <label title="">{{ fieldTitle["colorcode"] }}</label>
+          <p-colorpicker
+            name="bgColor"
+            [(ngModel)]="modelSvc.eventSetupModel.bgColor"
+            inputId="cp-hex"
+          />
+        </div>
+        <div
+          class="form-group d-flex justify-content-between align-items-center mt-3 w-100"
+        >
+          <div class="form-check">
+            <input
+              type="checkbox"
+              formcontrolname="isActive"
+              id="isActive"
+              name="isActive"
+              class="form-check-input"
+              [(ngModel)]="modelSvc.eventSetupModel.isActive"
+            />
+
+            <label for="isActive" title="isActive" class="form-check-label">{{
+              fieldTitle["isactive"]
+            }}</label>
+          </div>
+          <div class="d-flex gap-2">
+            <button
+              type="button"
+              *ngIf="modelSvc.eventSetupModel.id > 0"
+              (click)="setNew()"
+              class="btn btn-sm btn-danger"
+            >
+              <img src="../../../assets/images/icons/x-circle.svg" alt="icon" />
+              {{ fieldTitle["cancel"] }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-warning mr-d-10"
+              [disabled]="!eventSetupForm.dirty"
+              (click)="reset()"
+            >
+              <img src="../../../assets/images/icons/repeat.svg" alt="save" />
+              {{ fieldTitle["reset"] }}
+            </button>
+            <button
+              type="button"
+              niDbclickPrevent
+              class="btn btn-sm btn-success"
+              [disabled]="!eventSetupForm.valid || !eventSetupForm.dirty"
+              (click)="save(eventSetupForm)"
+            >
+              <img
+                src="../../../assets/images/icons/check-circle.svg"
+                alt="icon"
+              />
+              {{ fieldTitle["save"] }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card-box p-3">
+      <app-ni-table
+        [gridOption]="gridOption"
+        [valueList]="modelSvc.eventList"
+        class="smaller-elements"
+      >
+        <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+          <tr>
+            <td>{{ item.event }}</td>
+            <td>{{ item.code }}</td>
+            <td>{{ item.icon }}</td>
+            <td>
+              <div
+                style="width: 30px; height: 20px; border: 1px solid #000"
+                [style.background-color]="item.bgColor"
+              ></div>
+            </td>
+            <td>{{ item.isActive ? "Yes" : "No" }}</td>
+            <td class="text-center" style="width: 10%">
+              <div class="d-flex align-items-center justify-content-center">
+                @if(!item.isDefault){
+                <button
+                  [disabled]="item.isDefault"
+                  type="button"
+                  pButton
+                  pRipple
+                  icon="pi pi-pencil"
+                  class="p-button-success p-mr-2"
+                  type="button"
+                  (click)="editEvent(item, eventSetupForm)"
+                ></button>
+                <button
+                  [disabled]="item.isDefault"
+                  type="button"
+                  niDbclickPrevent
+                  class="p-button-danger"
+                  pButton
+                  pRipple
+                  icon="pi pi-trash"
+                  (click)="deleteEvent(item.id, eventSetupForm)"
+                ></button>
+                }
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </app-ni-table>
+    </div>
+  </div>
+</div>

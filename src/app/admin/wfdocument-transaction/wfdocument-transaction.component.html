@@ -1,0 +1,25 @@
+<div class="d-flex flex-wrap align-items-center gap-1 justify-content-between">
+  <h1 class="head-title me-4">
+    <b>{{ fieldTitle["documentname"] }}:</b> {{ trnsactionList[0]?.pageTitle }}
+  </h1>
+  <h1 class="head-title me-4">
+    <b>{{ fieldTitle["ref.no."] }}:</b> {{ trnsactionList[0]?.transactionCode }}
+  </h1>
+</div>
+<div class="card-box">
+  <app-ni-table [gridOption]="gridOption" [valueList]="trnsactionList">
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.eventUserName }}</td>
+        <td>{{ item.event }}</td>
+        <td>
+          <span [style.color]="item.colorCode || '#eeeeee'">{{
+            item.statusName
+          }}</span>
+        </td>
+        <td width="300">{{ item.comment ? item.comment : "-------------" }}</td>
+        <td>{{ item.eventDate }} {{ "  " }} {{ item.eventTime }}</td>
+      </tr>
+    </ng-template>
+  </app-ni-table>
+</div>
